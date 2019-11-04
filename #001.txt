@@ -29,8 +29,7 @@
 (1, A, END, B, >)
 (1, -B, 0, B, -)
 
-(END, A, END, A, >)
-(END, B, END, B, >)
+(END, AB, END, AB, >)
 (END, -, START, A, <)
 
 (START, A, START, A, <)
