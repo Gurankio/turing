@@ -1,2 +1,2 @@
-# turing
+# Turing
 Repository for Turing Machine.
