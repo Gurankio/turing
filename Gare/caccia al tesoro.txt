@@ -1,0 +1,71 @@
+# A 3 a destra
+# B 4 a sinistra
+# C 3 a destra, se C ancora a destra
+# D 2 a sinistra, se A a destra
+# E vai a destra fino alla B / C
+# F cambia la f in B e torna all'inizio
+# G fino alla fine, esegui l'ultima casella
+# T tesoro -> fine
+# X pos partenza, vai a destra poi fai qualcosa
+# . casella vuota
+# Y dove siamo rimasti
+
+(0, ^X, 0, ^X, >)
+(0, X, sX0, X, >)
+
+(sX0, ., sX0, ., >)
+(sX0, -, asdf, -, >)
+(sX0, [A..GT], s[A..GT]0, [A..GT], -)
+
+(sT0, T, p, 0, >)
+(p, ^-, p, -, >)
+(p, -, p1, -, <)
+(p1, -, p1, -, <)
+(p1, 0, qwerty, 0, <)
+
+(qwerty, ^-, add, #, >)
+(qwerty, -, nocanc, -, >)
+(qwerty, #, qwerty, #, <)
+
+(nocanc, #, nocanc, -, >)
+
+(add, #, add, #, >)
+(add, -, add, -, >)
+(add, 0..8, qwerty, 1..9, <)
+(add, 9, rip, 0, <)
+(rip, #, qwerty, 1, <)
+(rip, 0..9, add, 0..9, -)
+
+(sA[0..2], ^, sA[1..3], ^, >)
+(sA3, .-, asdf, .-, -)
+(sA3, [A..GT], s[A..GT]0, [A..GT], -)
+
+(sB[0..3], ^, sB[1..4], ^, <)
+(sB4, .-, asdf, .-, -)
+(sB4, [A..GT], s[A..GT]0, [A..GT], -)
+
+(sC[0..2], ^, sC[1..3], ^, >)
+(sC3, .-, asdf, .-, -)
+(sC3, C, sC3, C, >)
+(sC3, [A..GT], s[A..GT]0, [A..GT], -)
+
+(sD[0..1], ^, sD[1..2], ^, <)
+(sD2, .-, asdf, .-, -)
+(sD2, A, sD3, A, >)
+(sD2, [B..GT], s[B..GT]0, [B..GT], -)
+(sD3, [A..GT], s[A..GT]0, [A..GT], -)
+
+(sE0, ^BC-, sE0, ^BC-, >)
+(sE0, -, asdf, -, -)
+(sE0, [BC], s[BC]0, [BC], -)
+
+(sF0, F, sF1, B, <)
+(sF1, ^-, sF1, ^-, <)
+(sF1, -, sF2, -, >)
+(sF2, [A..GTX], s[A..GTX]0, [A..GTX], -)
+(sF2, ., asdf, ., -)
+
+(sG0, ^-, SG0, ^-, >)
+(sG0, -, SG1, -, <)
+(sG1, ., asdf, ., -)
+(sG1, [A..GTX], s[A..GTX]0, [A..GTX], -)
