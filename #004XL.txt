@@ -15,6 +15,7 @@
 
 (add, 0, add, X, >)
 (add, 1, addS, X, <)
+(add, -, clean, -, <)
 
 (addS, X, addS, X, <)
 (addS, -0..8, addE, 11..9, >)
@@ -24,3 +25,6 @@
 (addE, X, addE1, X, >)
 (addE1, X, addE1, X, >)
 (addE1, ^X, add, ^X, -)
+
+(clean, X, clean, -, <)
+(clean, -, -, 0, -)
