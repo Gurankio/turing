@@ -1,0 +1,140 @@
+(0, ^, 1, ^, <)
+(1, -, check, #, -)
+
+(check, ^#, check, ^#, <)
+(check, #, check0, #, >)
+
+(check0, ^0x, goXC, ^0x, >)
+(check0, 0, check0, 0, >)
+(check0, x, clean, x, >)
+
+(goXC, ^x, goXC, ^x, >)
+(goXC, x, check2, x, <)
+
+(check2, 02468, mulA, 02468, >)
+(check2, 13579, sumA, 13579, >)
+
+
+
+(sumA, ^-, sumA, ^-, >)
+(sumA, -, sum2B, -, <)
+
+(sumB, [0..9], sumC[0..9], [A..J], <)
+(sumB, x, sumF, x, <)
+
+(sumC[0..9], ^A..J, sumC[0..9], ^A..J, <)
+(sumC[0..9], A..J, sumD[0..9], 0..9, <)
+
+
+(sum2B, [0..9], sum2C[0..9], [A..J], <)
+(sum2B, x, sumF, x, <)
+
+(sum2C[0..9], ^#, sum2C[0..9], ^#, <)
+(sum2C[0..9], #, sum2D[0..9], #, <)
+
+(sum2D[0..9], -A..J, sumD[0..9], 00..9, -)
+
+
+(sumD[0..9], -, sumE, [A..J], >)
+
+(sumD0, 0..9, sumE, A..J, >)
+
+(sumD1, 0..8, sumE, B..J, >)
+(sumD1, 9, sumR, A, <)
+
+(sumD2, 0..7, sumE, C..J, >)
+(sumD2, 8..9, sumR, A..B, <)
+
+(sumD3, 0..6, sumE, D..J, >)
+(sumD3, 7..9, sumR, A..C, <)
+
+(sumD4, 0..5, sumE, E..J, >)
+(sumD4, 6..9, sumR, A..D, <)
+
+(sumD5, 0..4, sumE, F..J, >)
+(sumD5, 5..9, sumR, A..E, <)
+
+(sumD6, 0..3, sumE, G..J, >)
+(sumD6, 4..9, sumR, A..F, <)
+
+(sumD7, 0..2, sumE, H..J, >)
+(sumD7, 3..9, sumR, A..G, <)
+
+(sumD8, 0..1, sumE, I..J, >)
+(sumD8, 2..9, sumR, A..H, <)
+
+(sumD9, 0, sumE, J, >)
+(sumD9, 1..9, sumR, A..I, <)
+
+(sumR, 0..8, sumEJ, 1..9, >)
+(sumR, 9, sumR, 0, <)
+
+(sumEJ, ^A..J, sumEJ, ^A..J, >)
+(sumEJ, A..J, sumE, A..J, >)
+
+(sumE, ^A..J, sumE, ^A..J, >)
+(sumE, A..J, sumB, 0..9, <)
+
+(sumF, ^-, sumF, ^-, <)
+(sumF, -, sumG, -, >)
+
+(sumG, A..J, sumH, 0..9, >)
+
+(sumH, ^#, sumH, ^#, >)
+(sumH, #, sumI, #, <)
+
+(sumI, 0..9, goXM, A..J, >)
+
+
+
+(goXM, ^x, goXM, ^x, >)
+(goXM, x, mulA, x, -)
+
+(mulA, ^-, mulA, ^-, >)
+(mulA, -, mulB, -, <)
+
+(mulB, [0..9], mulC[0246802468], [0000011111], >)
+(mulB, x, divA, x, <)
+
+(mulC[02468], -, mulJ, [02468], <)
+
+(mulC0, 0..9, mulJ, 0..9, <)
+
+(mulC2, 0..7, mulJ, 2..9, <)
+
+(mulC4, 0..5, mulJ, 4..9, <)
+
+(mulC6, 0..3, mulJ, 6..9, <)
+
+(mulC8, 0..1, mulJ, 8..9, <)
+
+(mulJ, ^, mulB, ^, <)
+
+
+
+(divA, ^#, divA, ^#, <)
+(divA, #, divB, #, >)
+
+(divB, 02468, divB, 01234, >)
+(divB, 13579, divC, 01234, >)
+(divB, x, check, x, <)
+
+(divC, 02468, divB, 56789, >)
+(divC, 13579, divC, 56789, >)
+(divC, x, check, x, <)
+
+
+
+(clean, ^-, clean, -, >)
+(clean, -, clean2, -, <)
+
+(clean2, ^#, clean2, -, <)
+(clean2, #, clean3, -, <)
+
+(clean3, A..J, clean4, 0..9, <)
+
+(clean4, ^-, clean4, ^-, <)
+(clean4, -, clean5, -, >)
+
+(clean5, 0, clean5, -, >)
+(clean5, ^0, -, ^0, -)
