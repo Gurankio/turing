@@ -1,4 +1,4 @@
-# Turing
+# Gare Turing
 
 Si programma in quintuple.
 (Stato Attuale, Input, Stato Successivo, Output, Movimento)
